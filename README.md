@@ -1,4 +1,4 @@
-## Meta-analysis of landslide inventories across the United States
+## Meta-analysis of landslide inventories for the Pacific Coast Region of the Coterminous United States
 
 **Download shapefile of US landslide inventories from:** https://www.sciencebase.gov/catalog/item/5c7065b4e4b0fe48cb43fbd7
 
