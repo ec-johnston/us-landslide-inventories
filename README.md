@@ -4,7 +4,7 @@
 
 ![Alt Text](https://github.com/ec-johnston/landslide-inventories/blob/main/plots/inventories.png)
 
-## Landslide inventories across the United States
+## Data availability: landslide inventories across the United States
 
 **Shapefile of US landslide inventories can be downloaded from:** https://www.sciencebase.gov/catalog/item/5c7065b4e4b0fe48cb43fbd7
 
