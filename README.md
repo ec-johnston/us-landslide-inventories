@@ -6,7 +6,7 @@
 
 ## Data availability: landslide inventories across the United States
 
-We thank the USGS for access to the catalog of landslide inventories in the United States
+We thank the USGS for access to the catalog of landslide inventories for the United States
 
 **Shapefile of US landslide inventories can be downloaded from:** https://www.sciencebase.gov/catalog/item/5c7065b4e4b0fe48cb43fbd7
 
