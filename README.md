@@ -1,4 +1,4 @@
-## Meta-analysis of landslide inventories for the Pacific Coast Region of the United States
+## Meta-analysis of landslide inventories available for the Pacific Coast Region of the United States
 
 **Supplemental analysis for manuscript submitted to GRL (Quantifying the sensitivity of landslide hazard to precipitation intensity in urbanized and non-urbanized areas; 2021GL094038)** by Elizabeth Johnston, Frances Davenport, Lijing Wang, Jef Caers, Suresh Muthukrishnan, Marshall Burke and Noah Diffenbaugh 
 
