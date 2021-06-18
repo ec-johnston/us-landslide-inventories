@@ -4,6 +4,7 @@ library(tidyverse)
 library(sp)
 library(data.table)
 library(lubridate)
+library(raster)
 
 
 ## Analysis of database from ScienceBase Catalog
