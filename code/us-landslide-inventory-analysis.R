@@ -6,7 +6,7 @@ library(data.table)
 library(lubridate)
 library(raster)
 
-source("~ec-johnston/landslides-precip/data/func.R")
+source("~/ec-johnston/landslides-precip/data/func.R")
 
 ## Download shapefile of landslide inventories across US from: 
 ## https://www.sciencebase.gov/catalog/item/5c7065b4e4b0fe48cb43fbd7
@@ -15,9 +15,9 @@ setwd("~/Downloads/US_Landslide_1")
 us_landslide <- rgdal::readOGR("shp", "US_Landslide_point")
 
 ## read in raster and dataframe of pacific coast states
-pacific_coast <- raster("~ec-johnston/landslides-precip/data/pacific_coast.asc")
+pacific_coast <- raster("~/ec-johnston/landslides-precip/data/pacific_coast.asc")
 crs(pacific_coast) <- "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0" 
-pacific_coast_df <- readRDS("~ec-johnston/landslides-precip/data/pacific_coast_df.rds")
+pacific_coast_df <- readRDS("~/ec-johnston/landslides-precip/data/pacific_coast_df.rds")
 
 ## change CRS
 us_landslide_proj <- spTransform(us_landslide, crs(pacific_coast)) 
