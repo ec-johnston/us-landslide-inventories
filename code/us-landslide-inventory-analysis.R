@@ -6,17 +6,20 @@ library(data.table)
 library(lubridate)
 library(raster)
 
+source("~ec-johnston/landslides-precip/data/func.R")
 
-## Analysis of database from ScienceBase Catalog
-## Download shpaefile of landslide inventories across US from: 
+## Download shapefile of landslide inventories across US from: 
 ## https://www.sciencebase.gov/catalog/item/5c7065b4e4b0fe48cb43fbd7
-
-source("~/landslides-precip/data/func.R")
 
 setwd("~/Downloads/US_Landslide_1")
 us_landslide <- rgdal::readOGR("shp", "US_Landslide_point")
 
-## change CRS of raster
+## read in raster and dataframe of pacific coast states
+pacific_coast <- raster("~ec-johnston/landslides-precip/data/pacific_coast.asc")
+crs(pacific_coast) <- "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0" 
+pacific_coast_df <- readRDS("~ec-johnston/landslides-precip/data/pacific_coast_df.rds")
+
+## change CRS
 us_landslide_proj <- spTransform(us_landslide, crs(pacific_coast)) 
 
 ## crop to rectangular spatial extent of pacific coast & convert to dataframe
@@ -106,6 +109,7 @@ dates <- as.data.frame(rbind(dates_1, dates_2))
 dates$Year <- year(dates$Date)
 dates$Month <- month(dates$Date)
 
+## filter to include 2010 to 2017 (years we include in our analyses)
 OR_slido_filter <- dates %>% filter(Year > 2009 & Year < 2018) %>% rename(event_date = Date)
 
 pacificCoast_landslideInventory_xy_match <- match_xy_to_raster(pacificCoast_landslideInventory, pacific_coast)
@@ -116,7 +120,6 @@ pacificCoast_landslideInventory$y <- pacificCoast_landslideInventory_xy_match$y
 OR_slido_filter_xy_match <- match_xy_to_raster(OR_slido_filter, pacific_coast)
 OR_slido_filter$x <- OR_slido_filter_xy_match$x
 OR_slido_filter$y <- OR_slido_filter_xy_match$y
-
 
 
 ## 463 landslides in Oregon not included in NASA inventory
