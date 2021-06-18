@@ -1,4 +1,6 @@
 
+# Plots of landslide inventories available for the Pacific Coast Region of the United States
+
 ![Alt Text](https://github.com/ec-johnston/landslide-inventories/blob/main/plots/inventories.png)
 
 ![Alt Text](https://github.com/ec-johnston/landslide-inventories/blob/main/plots/landslide_catalog_map.png)
