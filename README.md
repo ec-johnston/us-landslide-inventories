@@ -1,6 +1,6 @@
 ## Exploratory data analysis of landslide inventories available for the Pacific Coast Region of the United States
 
-TL;DR: The landslides included in this catalog (other than those sourced from NASA, which we already analyze) are reported at greater than daily temporal resolution. These other inventories also do not provide a reported landslide trigger. The NASA COOLR is best suited for our panel regression framework, given its (at least) daily temporal resolution reporting of landslides, as well as its focus on precipitation-triggered landslides and explicit reporting of a landslide trigger. 
+TL;DR: The landslides included in this catalog (other than those sourced from NASA) are reported at greater than daily temporal resolution. These other inventories also do not provide a reported landslide trigger. The NASA COOLR is best suited for our panel regression framework, given its (at least) daily temporal resolution reporting of landslides, as well as its focus on precipitation-triggered landslides and explicit reporting of a landslide trigger. 
 
 **Shapefile of US landslide inventories can be downloaded from:** https://www.sciencebase.gov/catalog/item/5c7065b4e4b0fe48cb43fbd7
 
