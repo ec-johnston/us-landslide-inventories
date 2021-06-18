@@ -125,8 +125,6 @@ OR_slido_filter <- anti_join(OR_slido_filter, pacificCoast_landslideInventory, b
 OR_slido_filter %>% group_by(Year) %>% tally()
 OR_slido_filter %>% group_by(Month) %>% tally()
 
-summary(test$Info_sourc)
-
 
 ## usa maps 
 usa <- map_data("usa") 
@@ -150,7 +148,7 @@ ggplot() +
   theme_void() +
   coord_fixed(1.3) 
 
-
+## map of OR SLIDO landslides
 ggplot() +
   geom_polygon(data = westCoast, aes(x=long, y = lat, group = group), fill = "transparent", color = "black") + 
   geom_point(data = OR_slido_filter, aes(x = x, y = y), color = "salmon1") +
@@ -159,7 +157,7 @@ ggplot() +
   theme(legend.position = "none") +
   coord_fixed(1.3)
 
-
+## bar chart of OR slido landslides
 ggplot() +
   geom_bar(data = OR_slido_filter, aes(as.factor(OR_slido_filter$Month))) +
   xlab("Month") +
