@@ -122,7 +122,7 @@ OR_slido_filter$x <- OR_slido_filter_xy_match$x
 OR_slido_filter$y <- OR_slido_filter_xy_match$y
 
 
-## 463 landslides in Oregon not included in NASA inventory
+## filter to exclude landslides in NASA inventory
 OR_slido_filter <- anti_join(OR_slido_filter, pacificCoast_landslideInventory, by = c("x", "y", "event_date"))
 
 OR_slido_filter %>% group_by(Year) %>% tally()
