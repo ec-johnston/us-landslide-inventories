@@ -16,7 +16,7 @@ source("~/landslides-precip/data/func.R")
 setwd("~/Downloads/US_Landslide_1")
 us_landslide <- rgdal::readOGR("shp", "US_Landslide_point")
 
-## re-project raster
+## change CRS of raster
 us_landslide_proj <- spTransform(us_landslide, crs(pacific_coast)) 
 
 ## crop to rectangular spatial extent of pacific coast & convert to dataframe
@@ -35,16 +35,19 @@ pacific_coast_xy_match <- match_xy_to_raster(data = pacific_coast_df[,1:2], rast
 pacific_coast_df$x <- pacific_coast_xy_match$x
 pacific_coast_df$y <- pacific_coast_xy_match$y
 
+## remove grid cells outside of pacific coast states 
+## (i.e., go from rectangular spatial extent to outline of Pacific Coast states)
 landslides_df <- inner_join(pacific_coast_df, landslides_df, by = c("x", "y"))
 
 summary(landslides_df$Inventory)
 
+## summarize data by landslide inventory 
 summary_data <- as.data.frame(landslides_df %>% group_by(Inventory, .drop = FALSE) %>% tally(sort = TRUE))
 summary_data$n <- as.numeric(summary_data$n)
 
 summary_data <- summary_data %>% filter(n > 0) %>% mutate(Inventory = fct_reorder(Inventory, n))
 
-
+## bar chart summarizing landslide inventories available for the Pacific Coast region
 inventory_plot <- ggplot(summary_data, aes(x = Inventory, y = n)) + 
   geom_bar(stat = "identity") +
   ylab("# of landslides") +
@@ -53,15 +56,16 @@ inventory_plot <- ggplot(summary_data, aes(x = Inventory, y = n)) +
   theme_classic()
 
 
-## California geological survey inventory
+## Subsetting California Geological Survey (CA GS) inventory
 landslides_df %>% filter(Inventory == "California GS") %>% group_by(Date) %>% tally %>% print(n = 40) 
 California_GS <- as.data.frame(landslides_df %>% filter(Inventory == "California GS")) %>% drop_na(Date)
 California_GS_NA <- anti_join(landslide_df[landslide_df$Inventory == "California GS", ], California_GS, by = "Date")
 
-
+## Summarize CA GS inventory by date 
 summary_data <- as.data.frame(landslides_df %>% filter(Inventory == "California GS") %>% group_by(Date) %>% tally %>% print(n = 40))
 summary_data <- summary_data %>% mutate(Date = fct_reorder(Date, n))
 
+## bar chart of CA GS inventory by date
 ca_gs_plot <- ggplot(summary_data, aes(x = Date, y = n)) + 
   geom_bar(stat = "identity") +
   ylab("# of landslides") +
@@ -75,10 +79,9 @@ ca_gs_plot <- ggplot(summary_data, aes(x = Date, y = n)) +
 landslides_df %>% filter(Inventory == "OR Slido") %>% group_by(Date) %>% tally(sort = TRUE) %>% print(n = 500)
 OR_slido <- landslides_df %>% filter(Inventory == "OR Slido")
 
+## summarize by date
 summary_data <- landslides_df %>% filter(Inventory == "OR Slido") %>% group_by(Date) %>% tally(sort = TRUE) %>% print(n = 500)
 summary_data <- summary_data %>% mutate(Date = fct_reorder(Date, n))
-
-
 
 
 ## plot showing top 20 "Dates" in OR Slido
@@ -89,8 +92,7 @@ or_slido_plot <- ggplot(summary_data[1:20,], aes(x = Date, y = n)) +
   ggtitle("OR Slido") +
   theme_classic()
 
-## subset dates that have particular format
-
+## subset dates that appear in "daily" format (00/00/0000 or 0/00/0000) 
 format_1 <- grepl("[0-9]{2}/[0-9]{2}/[0-9]{2}", OR_slido$Date)
 format_2 <- grepl("[0-9]{1}/[0-9]{2}/[0-9]{2}", OR_slido$Date)
 
@@ -126,12 +128,12 @@ OR_slido_filter %>% group_by(Month) %>% tally()
 summary(test$Info_sourc)
 
 
-# maps 
-
+## usa maps 
 usa <- map_data("usa") 
 states <- map_data("state")
 westCoast <- subset(states, region %in% c("california", "oregon", "washington"))
 
+## map of landslide catalog
 ggplot() +
   geom_polygon(data = westCoast, aes(x=long, y = lat, group = group), fill = "transparent", color = "black") + 
   geom_point(data = landslides_df, aes(x = x, y = y, color = Inventory), alpha = 0.5) +
@@ -140,12 +142,14 @@ ggplot() +
   theme_void() +
   coord_fixed(1.3) 
 
+## CA GS map
 ggplot() +
   geom_polygon(data = westCoast, aes(x=long, y = lat, group = group), fill = "transparent", color = "black") + 
   geom_point(data = California_GS_NA, aes(x = x, y = y), alpha = 0.1, color = "salmon1") +
   ggtitle("CA Geological Survey \n Date = NA (n = 18,491)") +
   theme_void() +
   coord_fixed(1.3) 
+
 
 ggplot() +
   geom_polygon(data = westCoast, aes(x=long, y = lat, group = group), fill = "transparent", color = "black") + 
