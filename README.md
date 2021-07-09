@@ -14,6 +14,10 @@ The formatting and temporal resolution of the “Date” attribute is inconsiste
 
 Unfortunately, all “Dates” associated with landslides reported by USGS Conterminous (n = 289), and USGS WA PS Railway (n = 132) are missing (“NA”), so we are unable to use these inventories within our daily-scale panel regression framework. 
 
+![alt text](https://github.com/ec-johnston/landslide-inventories/blob/main/plots/Figures_C_D.png)
+
 A majority of landslides (n = 18,491) in the California Geological Survey inventory are also associated with an “NA” date value (Figure C above). The remaining landslides from the California Geological Survey are reported at annual temporal resolution, with no landslides reported after 2004.  It’s possible that many of the landslides from the California Geological Survey are associated with storms that occurred between Jan. 3–5, 1982, which may have resulted in >18,000 landslides (as mentioned by the Reviewer). It appears that these tens of thousands of landslides are not concentrated in the Bay Area but are distributed along the entire California coast (and likely extended further north as well; Figure D above). However, given the lack of information about the date of occurrence, we cannot readily incorporate these landslides into our analysis. 
+
+![alt text](https://github.com/ec-johnston/landslide-inventories/blob/main/plots/Figure_E.png)
 
 Within the OR SLIDO inventory, landslides are reported at inconsistent temporal resolution, with the majority (n = 10,789) reported at annual or greater than annual resolution (Figure E above). Of the 470 landslides reported by OR SLIDO at daily resolution between 2010 and 2017, 463 are not included in the COOLR. Of these landslides, 453 occurred in 2010 and were reported by the Oregon Department of Transportation (ODOT). The “Notes” associated with these 2010 ODOT landslides indicate they may have been associated with hillslope failure above and/or below major roads. Given that some but not all of these landslides are included in COOLR, and we are unsure of a trigger, we do not include the 463 landslides included in OR SLIDO but not COOLR in our analyses. 
