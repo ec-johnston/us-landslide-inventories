@@ -6,7 +6,7 @@ Jones, E.S., Mirus, B.B, Schmitt, R.G., Baum, R.L., Burns, W.J., Crawford, M., G
 
 ## Results of exploratory data analysis
 
-For our study area, the Pacific Coast region of the coterminous United States (i.e., CA, OR, WA), landslides in the US Landslide Catalog come from five digital source inventories published by the California Geological Survey (n = 29,611), OR SLIDO: Statewide Landslide Information Database for Oregon (n = 13,047), NASA (an older version of the GLC/COOLR; n = 1,806), USGS Conterminous (n = 289), and USGS WA PS Railway (n = 132; Figures A and B below). 
+For our study area, the Pacific Coast region of the conterminous United States (i.e., CA, OR, WA), landslides in the US Landslide Catalog come from five digital source inventories published by the California Geological Survey (n = 29,611), OR SLIDO: Statewide Landslide Information Database for Oregon (n = 13,047), NASA (an older version of the GLC/COOLR; n = 1,806), USGS Conterminous (n = 289), and USGS WA PS Railway (n = 132; Figures A and B below). 
 
 ![alt text](https://github.com/ec-johnston/landslide-inventories/blob/main/plots/Figures_A_B.png)
 
