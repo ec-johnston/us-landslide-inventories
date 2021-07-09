@@ -1,8 +1,11 @@
-## Exploratory data analysis of landslide inventories available for the Pacific Coast Region of the United States
+## Suitability analysis of landslide inventories available for the Pacific Coast Region of the United States
 
 ### Shapefile of US landslide inventories can be downloaded from: https://www.sciencebase.gov/catalog/item/5c7065b4e4b0fe48cb43fbd7
 
 Jones, E.S., Mirus, B.B, Schmitt, R.G., Baum, R.L., Burns, W.J., Crawford, M., Godt, J.W., Kirschbaum, D.B., Lancaster, J.T., Lindsey, K.O., McCoy, K.E., Slaughter, S., and Stanley, T.A., 2019, Summary Metadata – Landslide Inventories across the United States: U.S. Geological Survey data release, https://doi.org/10.5066/P9E2A37P.
+
+
+## Results of suitability analysis
 
 For our study area, the Pacific Coast region of the coterminous United States (i.e., CA, OR, WA), landslides in the US Landslide Catalog come from five digital source inventories published by the California Geological Survey (n = 29,611), OR SLIDO: Statewide Landslide Information Database for Oregon (n = 13,047), NASA (an older version of the GLC/COOLR; n = 1,806), USGS Conterminous (n = 289), and USGS WA PS Railway (n = 132; Figures A and B above). 
 
